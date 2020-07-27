@@ -3,7 +3,7 @@
     "path": "C:/myWork/sos_stats/STA8190_2020_s2_Bayesian/DESCRIPTION",
     "project_path": "DESCRIPTION",
     "type": "dcf",
-    "hash": "343485968",
+    "hash": "228404920",
     "contents": "",
     "dirty": false,
     "created": 1595822719181.0,
@@ -11,15 +11,15 @@
     "relative_order": 7,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "4,25",
+        "cursorPosition": "3,40",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1595822784,
+    "lastKnownWriteTime": 1595825664,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1595822784845,
+    "last_content_update": 1595825664314,
     "read_only": false,
     "read_only_alternatives": []
 }

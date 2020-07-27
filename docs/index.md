@@ -8,6 +8,7 @@ bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: danBurrell/StatisticalRethinking
+url: 'https://danburrell.github.io/StatisticalRethinking/'
 description: "My journey working through McElreath's Statistical Rethinking text"
 ---
 
