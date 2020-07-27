@@ -1,0 +1,5 @@
+book_filename: "STA8190_2020_s2_Bayesian"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
