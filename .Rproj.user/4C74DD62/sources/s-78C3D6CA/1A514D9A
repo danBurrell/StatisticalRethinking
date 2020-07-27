@@ -3,19 +3,22 @@
     "path": "C:/myWork/sos_stats/STA8190_2020_s2_Bayesian/README.md",
     "project_path": "README.md",
     "type": "markdown",
-    "hash": "386608182",
+    "hash": "816769530",
     "contents": "",
     "dirty": false,
     "created": 1595820254199.0,
     "source_on_save": false,
     "relative_order": 1,
-    "properties": {},
+    "properties": {
+        "cursorPosition": "0,112",
+        "scrollLine": "0"
+    },
     "folds": "",
-    "lastKnownWriteTime": 1595820251,
+    "lastKnownWriteTime": 1595824403,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1595820251,
+    "last_content_update": 1595824403928,
     "read_only": false,
     "read_only_alternatives": []
 }

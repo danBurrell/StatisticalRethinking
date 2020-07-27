@@ -3,19 +3,22 @@
     "path": "C:/myWork/sos_stats/STA8190_2020_s2_Bayesian/_output.yml",
     "project_path": "_output.yml",
     "type": "yaml",
-    "hash": "1248109858",
+    "hash": "2398198387",
     "contents": "",
     "dirty": false,
     "created": 1595820254482.0,
     "source_on_save": false,
     "relative_order": 3,
-    "properties": {},
+    "properties": {
+        "cursorPosition": "18,23",
+        "scrollLine": "0"
+    },
     "folds": "",
-    "lastKnownWriteTime": 1595820251,
+    "lastKnownWriteTime": 1595824501,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1595820251,
+    "last_content_update": 1595824501703,
     "read_only": false,
     "read_only_alternatives": []
 }
