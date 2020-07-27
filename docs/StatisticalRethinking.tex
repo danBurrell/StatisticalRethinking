@@ -36,7 +36,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={A Minimal Book Example},
+  pdftitle={Mulling Over McElreath's Statistical Rethinking},
   pdfauthor={Dan Burrell},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -108,12 +108,15 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
+
+% Define new commands
+\newcommand{\stan}{\textsc{Stan}}
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{A Minimal Book Example}
+\title{Mulling Over McElreath's Statistical Rethinking}
 \author{Dan Burrell}
-\date{2020-07-27}
+\date{2020-07-28}
 
 \begin{document}
 \maketitle
@@ -122,27 +125,115 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{prerequisites}{%
-\chapter{Prerequisites}\label{prerequisites}}
+\hypertarget{before-you-start-you-should-do-these-things}{%
+\chapter{Before you start, you should do these things}\label{before-you-start-you-should-do-these-things}}
 
-This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\).
-
-The \textbf{bookdown} package can be installed from CRAN or Github:
+We're working through the second edition of McElreath's Statistical Rethinking text. We need to access the associated R pacakge \texttt{rethinking} and also load the \texttt{tidyverse}. Use the following code:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
-\CommentTok{# or the development version}
-\CommentTok{# devtools::install_github("rstudio/bookdown")}
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(pacman)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{"pacman"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(pacman)}
+
+\KeywordTok{p_load}\NormalTok{(coda, mvtnorm, loo, dagitty)}
+\KeywordTok{p_load_gh}\NormalTok{(}\StringTok{"rmcelreath/rethinking"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading \texttt{\#}.
+Below is an example of the generic format for \stan code. The blocks need to occur in the order specified, however only the \texttt{model} block is necessary (the others are optional, depending on the needs of the modeler).
 
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.org/tinytex/}.
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modelString =}\StringTok{ "}
 
-\hypertarget{intro}{%
-\chapter{Introduction}\label{intro}}
+\StringTok{    data \{}
+\StringTok{        ...declarations... // This is a comment}
+\StringTok{    \}}
+
+\StringTok{    transformed data \{}
+\StringTok{        ...declarations ... statements ...}
+\StringTok{    \}}
+
+\StringTok{    parameters \{}
+\StringTok{        ...declarations...}
+\StringTok{    \}}
+
+\StringTok{    transformed parameters \{}
+\StringTok{        ... declarations ... statemetns ...}
+\StringTok{    \}}
+
+\StringTok{    model \{}
+\StringTok{        ...declarations ... statements ...}
+\StringTok{    \}}
+
+\StringTok{    generated quantities \{}
+\StringTok{        ...declarations ... statements ...}
+\StringTok{    \}}
+\StringTok{"} \CommentTok{# Close quote for modelString}
+\end{Highlighting}
+\end{Shaded}
+
+Translate the model into C++ code and compile into an executable dynamic shared object (DSO) using \texttt{stan\_model()} from the \texttt{rstan} package:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{p_load}\NormalTok{(rstan)}
+\NormalTok{stanDSO =}\StringTok{ }\KeywordTok{stan_model}\NormalTok{( }\DataTypeTok{model_code=}\NormalTok{modelString )}
+\end{Highlighting}
+\end{Shaded}
+
+Once the DSO is created, it can be used for generating a Monte Carlo sample from the posterior distribution. For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create some fictitious data:}
+\NormalTok{N =}\StringTok{ }\DecValTok{50}\NormalTok{; z =}\StringTok{ }\DecValTok{10}\NormalTok{; y =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,z), }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,N}\OperatorTok{-}\NormalTok{z))}
+\NormalTok{dataList =}\StringTok{ }\KeywordTok{list}\NormalTok{( }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{N=}\NormalTok{N)}
+\NormalTok{stanFit =}\StringTok{ }\KeywordTok{sampling}\NormalTok{( }\DataTypeTok{object=}\NormalTok{stanDSO, }\DataTypeTok{data=}\NormalTok{dataList,}
+                    \DataTypeTok{chains=}\DecValTok{3}\NormalTok{, }\DataTypeTok{iter=}\DecValTok{1000}\NormalTok{, }\DataTypeTok{warmup=}\DecValTok{200}\NormalTok{, }\DataTypeTok{thin=}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{# Load rjags, coda, and DBDA2E functions}
+\KeywordTok{source}\NormalTok{(}\StringTok{"DBDA2E-utilities.R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{theGolemOfPrague}{%
+\chapter{The Golem of Prague}\label{theGolemOfPrague}}
+
+Statistical models are like powerful yet dangerous robots. They will do their task, but they have no discernment as to whether their task is appropriate. For their particular task, they are good. But set to work on a task they're not intended for, they yield untrustworthy results.
+
+Classical statistical methods are fragile and inflexible. They are inflexible in that they are exhibit very limited adaptability to unique research contexts. They are fragile in that they fail in unpredictable ways when applied to new contexts. This is important because at the cutting edge of research it's rarely ever clear which procedure is appropriate.
+
+McElreath's point is that classical statistical tools are not diverse enough to handle many common research problems. Moreover, statistical tools on their own only understand association, and can tell us nothing about cause and effect. So, rather than having a tool kit of statistical ``robots'' and risk their misapplication, what is needed is a unified set of engineering principles for designing, constructing and refining purpose-built statistical procedures.
+
+Some thoughts on this:
+
+\begin{itemize}
+\tightlist
+\item
+  You need to understand how a statistical procedure processes information in order to be able to reasonably interpret its output;
+\item
+  detailed knowledge is a requirement;
+\item
+  getting greasy under the hood is how you cultivate this sort of deep understanding --- doing the computations the hard way (at least initially);
+\item
+  we also need a statistical epistemology --- an appreciation of how statistical models relate to hypotheses and the natural mechanisms of interest.
+\item
+  we need to do away with the null hypothesis significance testing mindset that is born from unscrupulous application of Popper's falsificationism; good science is done by developing statistical procedures that can falsify hypotheses, but this ought to be done thoughtfully and with adequate insight into the limitations of deductive falsification.
+\end{itemize}
+
+McElreath argues that deductive falsification is impossible in nearly every scientific context because:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Hypotheses are not models. There is not a one-to-one correspondence between hypotheses and models, so that strict falsification is impossible.
+\item
+  Measurement matters. Even when we think our data do falsify a model, the trustworthiness (or representativness) of the data is always up for debate.
+\end{enumerate}
+
+The upshot is that the scientific method cannot be reduced to a statistical procedure; and hence our scientific methods ought not pretend. That's the arrow shot at the heart of Null hypothesis significance testing (NHST), which is often identified with falsificationist, or Popperian, philosophy of science.
 
 You can label chapter and section titles using \texttt{\{\#label\}} after them, e.g., we can reference Chapter \ref{intro}. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \ref{methods}.
 
@@ -157,7 +248,7 @@ Figures and tables with captions will be placed in \texttt{figure} and \texttt{t
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{01-Introduction_files/figure-latex/nice-fig-1} 
+{\centering \includegraphics[width=0.8\linewidth]{01-theGolemOfPrague_files/figure-latex/nice-fig-1} 
 
 }
 
@@ -211,11 +302,6 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 \end{table}
 
 You can write citations, too. For example, we are using the \textbf{bookdown} package \citep{R-bookdown} in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
-
-\hypertarget{literature}{%
-\chapter{Literature}\label{literature}}
-
-Here is a review of existing methods.
 
   \bibliography{book.bib}
 

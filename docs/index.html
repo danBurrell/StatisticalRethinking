@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Minimal Book Example</title>
+  <title>Mulling Over McElreath’s Statistical Rethinking</title>
   <meta name="description" content="My journey working through McElreath’s Statistical Rethinking text" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Minimal Book Example" />
+  <meta property="og:title" content="Mulling Over McElreath’s Statistical Rethinking" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://danburrell.github.io/StatisticalRethinking/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="danBurrell/StatisticalRethinking" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Minimal Book Example" />
+  <meta name="twitter:title" content="Mulling Over McElreath’s Statistical Rethinking" />
   
   <meta name="twitter:description" content="My journey working through McElreath’s Statistical Rethinking text" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Dan Burrell" />
 
 
-<meta name="date" content="2020-07-27" />
+<meta name="date" content="2020-07-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 
-<link rel="next" href="intro.html"/>
+<link rel="next" href="theGolemOfPrague.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -134,9 +134,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Mulling Over McElreath's Statistical Musings</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Before you start, you should do these things</a></li>
+<li class="chapter" data-level="2" data-path="theGolemOfPrague.html"><a href="theGolemOfPrague.html"><i class="fa fa-check"></i><b>2</b> The Golem of Prague</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -149,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Mulling Over McElreath’s Statistical Rethinking</a>
           </h1>
         </div>
 
@@ -158,19 +157,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">A Minimal Book Example</h1>
+<h1 class="title">Mulling Over McElreath’s Statistical Rethinking</h1>
 <p class="author"><em>Dan Burrell</em></p>
-<p class="date"><em>2020-07-27</em></p>
+<p class="date"><em>2020-07-28</em></p>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
-<span id="cb1-2"><a href="index.html#cb1-2"></a><span class="co"># or the development version</span></span>
-<span id="cb1-3"><a href="index.html#cb1-3"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
+<div id="before-you-start-you-should-do-these-things" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Before you start, you should do these things</h1>
+<p>We’re working through the second edition of McElreath’s Statistical Rethinking text. We need to access the associated R pacakge <code>rethinking</code> and also load the <code>tidyverse</code>. Use the following code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(pacman)) <span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb1-2"><a href="index.html#cb1-2"></a><span class="kw">library</span>(pacman)</span>
+<span id="cb1-3"><a href="index.html#cb1-3"></a></span>
+<span id="cb1-4"><a href="index.html#cb1-4"></a><span class="kw">p_load</span>(coda, mvtnorm, loo, dagitty)</span>
+<span id="cb1-5"><a href="index.html#cb1-5"></a><span class="kw">p_load_gh</span>(<span class="st">&quot;rmcelreath/rethinking&quot;</span>)</span></code></pre></div>
+<p>Below is an example of the generic format for code. The blocks need to occur in the order specified, however only the <code>model</code> block is necessary (the others are optional, depending on the needs of the modeler).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1"></a>modelString =<span class="st"> &quot;</span></span>
+<span id="cb2-2"><a href="index.html#cb2-2"></a></span>
+<span id="cb2-3"><a href="index.html#cb2-3"></a><span class="st">    data {</span></span>
+<span id="cb2-4"><a href="index.html#cb2-4"></a><span class="st">        ...declarations... // This is a comment</span></span>
+<span id="cb2-5"><a href="index.html#cb2-5"></a><span class="st">    }</span></span>
+<span id="cb2-6"><a href="index.html#cb2-6"></a></span>
+<span id="cb2-7"><a href="index.html#cb2-7"></a><span class="st">    transformed data {</span></span>
+<span id="cb2-8"><a href="index.html#cb2-8"></a><span class="st">        ...declarations ... statements ...</span></span>
+<span id="cb2-9"><a href="index.html#cb2-9"></a><span class="st">    }</span></span>
+<span id="cb2-10"><a href="index.html#cb2-10"></a></span>
+<span id="cb2-11"><a href="index.html#cb2-11"></a><span class="st">    parameters {</span></span>
+<span id="cb2-12"><a href="index.html#cb2-12"></a><span class="st">        ...declarations...</span></span>
+<span id="cb2-13"><a href="index.html#cb2-13"></a><span class="st">    }</span></span>
+<span id="cb2-14"><a href="index.html#cb2-14"></a></span>
+<span id="cb2-15"><a href="index.html#cb2-15"></a><span class="st">    transformed parameters {</span></span>
+<span id="cb2-16"><a href="index.html#cb2-16"></a><span class="st">        ... declarations ... statemetns ...</span></span>
+<span id="cb2-17"><a href="index.html#cb2-17"></a><span class="st">    }</span></span>
+<span id="cb2-18"><a href="index.html#cb2-18"></a></span>
+<span id="cb2-19"><a href="index.html#cb2-19"></a><span class="st">    model {</span></span>
+<span id="cb2-20"><a href="index.html#cb2-20"></a><span class="st">        ...declarations ... statements ...</span></span>
+<span id="cb2-21"><a href="index.html#cb2-21"></a><span class="st">    }</span></span>
+<span id="cb2-22"><a href="index.html#cb2-22"></a></span>
+<span id="cb2-23"><a href="index.html#cb2-23"></a><span class="st">    generated quantities {</span></span>
+<span id="cb2-24"><a href="index.html#cb2-24"></a><span class="st">        ...declarations ... statements ...</span></span>
+<span id="cb2-25"><a href="index.html#cb2-25"></a><span class="st">    }</span></span>
+<span id="cb2-26"><a href="index.html#cb2-26"></a><span class="st">&quot;</span> <span class="co"># Close quote for modelString</span></span></code></pre></div>
+<p>Translate the model into C++ code and compile into an executable dynamic shared object (DSO) using <code>stan_model()</code> from the <code>rstan</code> package:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1"></a><span class="kw">p_load</span>(rstan)</span>
+<span id="cb3-2"><a href="index.html#cb3-2"></a>stanDSO =<span class="st"> </span><span class="kw">stan_model</span>( <span class="dt">model_code=</span>modelString )</span></code></pre></div>
+<p>Once the DSO is created, it can be used for generating a Monte Carlo sample from the posterior distribution. For example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1"></a><span class="co"># Create some fictitious data:</span></span>
+<span id="cb4-2"><a href="index.html#cb4-2"></a>N =<span class="st"> </span><span class="dv">50</span>; z =<span class="st"> </span><span class="dv">10</span>; y =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span>,z), <span class="kw">rep</span>(<span class="dv">0</span>,N<span class="op">-</span>z))</span>
+<span id="cb4-3"><a href="index.html#cb4-3"></a>dataList =<span class="st"> </span><span class="kw">list</span>( <span class="dt">y=</span>y, <span class="dt">N=</span>N)</span>
+<span id="cb4-4"><a href="index.html#cb4-4"></a>stanFit =<span class="st"> </span><span class="kw">sampling</span>( <span class="dt">object=</span>stanDSO, <span class="dt">data=</span>dataList,</span>
+<span id="cb4-5"><a href="index.html#cb4-5"></a>                    <span class="dt">chains=</span><span class="dv">3</span>, <span class="dt">iter=</span><span class="dv">1000</span>, <span class="dt">warmup=</span><span class="dv">200</span>, <span class="dt">thin=</span><span class="dv">1</span>)</span>
+<span id="cb4-6"><a href="index.html#cb4-6"></a></span>
+<span id="cb4-7"><a href="index.html#cb4-7"></a><span class="co"># Load rjags, coda, and DBDA2E functions</span></span>
+<span id="cb4-8"><a href="index.html#cb4-8"></a><span class="kw">source</span>(<span class="st">&quot;DBDA2E-utilities.R&quot;</span>)</span></code></pre></div>
 
 </div>
             </section>
@@ -179,7 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="theGolemOfPrague.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -229,20 +266,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
