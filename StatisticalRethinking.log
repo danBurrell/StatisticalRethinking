@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2020.1.4)  28 JUL 2020 06:26
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2020.1.4)  22 AUG 2020 17:26
 entering extended mode
 **./StatisticalRethinking.tex
 (StatisticalRethinking.tex
@@ -692,7 +692,20 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip59
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count299
-) (StatisticalRethinking.aux)
+) (StatisticalRethinking.aux
+
+LaTeX Warning: Label `h1.' multiply defined.
+
+
+LaTeX Warning: Label `h2.' multiply defined.
+
+
+LaTeX Warning: Label `h3.' multiply defined.
+
+
+LaTeX Warning: Label `h4.' multiply defined.
+
+)
 \openout1 = `StatisticalRethinking.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
@@ -1046,7 +1059,24 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 ] [2
 
-] (StatisticalRethinking.toc)
+] (StatisticalRethinking.toc
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00107pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00075pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 3.
+)
 \tf@toc=\write4
 \openout4 = `StatisticalRethinking.toc'.
 
@@ -1060,60 +1090,207 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 Chapter 2.
 [7
 
-]
+] [8] [9]
+Underfull \hbox (badness 1803) in paragraph at lines 305--307
+[]\TU/lmr/m/n/10 Model comparison: based on expected predictive accuracy (cross
+-
+ []
 
-LaTeX Warning: Reference `intro' on page 8 undefined on input line 238.
+
+LaTeX Warning: Reference `intro' on page 10 undefined on input line 312.
 
 
-LaTeX Warning: Reference `methods' on page 8 undefined on input line 238.
+LaTeX Warning: Reference `methods' on page 10 undefined on input line 312.
 
 File: 01-theGolemOfPrague_files/figure-latex/nice-fig-1.pdf Graphic file (type 
 pdf)
 <use 01-theGolemOfPrague_files/figure-latex/nice-fig-1.pdf>
-[8]
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 273.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 273.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 273.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 273.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 273.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 273.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 273.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 273.
 
-Package natbib Warning: Citation `R-bookdown' on page 9 undefined on input line
- 304.
+Package natbib Warning: Citation `R-bookdown' on page 10 undefined on input lin
+e 378.
 
-(StatisticalRethinking.bbl [9] [10
+[10] [11] [12]
+Chapter 3.
+[13
 
-])
+] [14] [15] [16]
+Chapter 4.
+[17
+
+] [18]
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-4-1.pdf Graphic 
+file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-4-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[19]
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-4-2.pdf Graphic 
+file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-4-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[20] [21]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 879--879
+[]\TU/lmtt/m/n/10 ##        0        1        2        3        4        5     
+   6        7[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 879--879
+[]\TU/lmtt/m/n/10 ## 0.000018 0.000431 0.003869 0.021115 0.073042 0.172010 0.26
+6576 0.267091[] 
+ []
+
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-10-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-10-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[22]
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-11-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-11-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[23]
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-12-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-12-1.pdf>
+[24]
+Overfull \hbox (279.75pt too wide) in paragraph at lines 942--942
+[]\TU/lmtt/m/n/10 ## [1] "The samples give  0.04 % less than 0.2, while the gri
+d-approximate posterior indicates  0.0856 % less than 0.2"[] 
+ []
+
+
+Overfull \hbox (321.75pt too wide) in paragraph at lines 966--966
+[]\TU/lmtt/m/n/10 ## [1] "The samples give  11.16 % greater than 0.8, while the
+ grid-approximate posterior indicates  12.0345 % greater than 0.8"[] 
+ []
+
+
+Overfull \hbox (274.5pt too wide) in paragraph at lines 990--990
+[]\TU/lmtt/m/n/10 ## [1] "The samples give 88.8 % in (0.2, 0.8), while the grid
+-approximate posterior indicates 87.8799 % in (0.2, 0.8)"[] 
+ []
+
+[25]
+Overfull \hbox (237.75pt too wide) in paragraph at lines 1062--1062
+[]\TU/lmtt/m/n/10 ## [1] "The narrowest interval containing 66% of the probabil
+itiy mass is the 66% HPDI: [0.51,0.77], (to 2 dp)"[] 
+ []
+
+
+Overfull \hbox (222.0pt too wide) in paragraph at lines 1093--1093
+[]\TU/lmtt/m/n/10 ## [1] "The narrowest interval containing 66% of the probabil
+itiy mass is the 66% PI: [0.5,0.77], (to 2 dp)"[] 
+ []
+
+[26] [27]
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-23-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-23-1.pdf>
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-24-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-24-1.pdf>
+
+Underfull \vbox (badness 1838) has occurred while \output is active []
+
+[28]
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-25-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-25-1.pdf>
+[29]
+Overfull \hbox (668.25pt too wide) in paragraph at lines 1297--1297
+[]\TU/lmtt/m/n/10 ## [1] "The informed prior leads to a narrower HPDI indicatin
+g that the informed prior leads to lesser uncertainty about the underlying valu
+e of the proportion of water on the globe[]s surface."[] 
+ []
+
+[30]
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-26-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-26-1.pdf>
+[31]
+Overfull \hbox (106.5pt too wide) in paragraph at lines 1374--1374
+[]\TU/lmtt/m/n/10 ## []summarise()[] regrouping output by []N[], []p_true[] (ov
+erride with [].groups[] argument)[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1388--1388
+[]\TU/lmtt/m/n/10 ## []summarise()[] ungrouping output (override with [].groups
+[] argument)[] 
+ []
+
+[32]
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-29-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-29-1.pdf>
+[33] [34]
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-34-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-34-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[35] [36] [37]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1621--1621
+[]\TU/lmtt/m/n/10 ## []stat_bin()[] using []bins = 30[]. Pick better value with
+ []binwidth[].[] 
+ []
+
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-37-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-37-1.pdf>
+[38]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1663--1663
+[]\TU/lmtt/m/n/10 ## []stat_bin()[] using []bins = 30[]. Pick better value with
+ []binwidth[].[] 
+ []
+
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-38-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-38-1.pdf>
+[39] [40]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1754--1754
+[]\TU/lmtt/m/n/10 ## []stat_bin()[] using []bins = 30[]. Pick better value with
+ []binwidth[].[] 
+ []
+
+File: 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-39-1.pdf Graphic
+ file (type pdf)
+<use 03-samplingTheImaginary_files/figure-latex/unnamed-chunk-39-1.pdf>
+[41] (StatisticalRethinking.bbl [42])
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 308.
-[11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 308.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1777.
+[43
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1777.
 (StatisticalRethinking.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 308.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 308.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1777.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1777.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 28340 strings out of 427669
- 512099 string characters out of 3149189
- 746130 words of memory out of 3000000
- 32121 multiletter control sequences out of 15000+200000
- 538732 words of font info for 77 fonts, out of 3000000 for 9000
+ 28451 strings out of 427669
+ 516448 string characters out of 3149189
+ 753475 words of memory out of 3000000
+ 32210 multiletter control sequences out of 15000+200000
+ 538772 words of font info for 82 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  58i,8n,115p,822b,429s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on StatisticalRethinking.pdf (11 pages).
+Output written on StatisticalRethinking.pdf (43 pages).

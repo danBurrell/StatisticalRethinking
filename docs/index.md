@@ -1,7 +1,7 @@
 --- 
 title: "Mulling Over McElreath's Statistical Rethinking"
 author: "Dan Burrell"
-date: '2020-07-28'
+date: '2020-08-22'
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -21,8 +21,14 @@ We're working through the second edition of McElreath's Statistical Rethinking t
 if(!require(pacman)) install.packages("pacman")
 library(pacman)
 
-p_load(coda, mvtnorm, loo, dagitty)
-p_load_gh("rmcelreath/rethinking")
+#install.packages("rstan", repos = "https://cloud.r-project.org/", dependencies = TRUE)
+#pkgbuild::has_build_tools(debug = TRUE) # Check the C++ toolchain
+#library("rstan")
+#options(mc.cores = parallel::detectCores())
+#rstan_options(auto_write = TRUE)
+p_load(coda, mvtnorm, loo, dagitty, tidyverse, remotes)
+remotes::install_github("rmcelreath/rethinking")
+#remotes::install_github("stan-dev/cmdstanr")
 ```
 
 Below is an example of the generic format for \stan code. The blocks need to occur in the order specified, however only the `model` block is necessary (the others are optional, depending on the needs of the modeler). 

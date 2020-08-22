@@ -436,10 +436,8 @@ gg1 = ggplot(data = m6_n,
              mapping = aes(x = N, y = 100 * fraction)) +
     geom_point() +
     geom_line()
-```
 
-```{r}
-gg2 + gg1
+gg1
 ```
 
 

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Small Worlds and Large Worlds | Mulling Over McElreath’s Statistical Rethinking</title>
+  <meta name="description" content="My journey working through McElreath’s Statistical Rethinking text" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Small Worlds and Large Worlds | Mulling Over McElreath’s Statistical Rethinking" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://danburrell.github.io/StatisticalRethinking/" />
+  
+  <meta property="og:description" content="My journey working through McElreath’s Statistical Rethinking text" />
+  <meta name="github-repo" content="danBurrell/StatisticalRethinking" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Small Worlds and Large Worlds | Mulling Over McElreath’s Statistical Rethinking" />
+  
+  <meta name="twitter:description" content="My journey working through McElreath’s Statistical Rethinking text" />
+  
+
+<meta name="author" content="Dan Burrell" />
+
+
+<meta name="date" content="2020-08-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="theGolemOfPrague.html"/>
+<link rel="next" href="sampling-the-imaginary.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Mulling Over McElreath's Statistical Musings</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Before you start, you should do these things</a></li>
+<li class="chapter" data-level="2" data-path="theGolemOfPrague.html"><a href="theGolemOfPrague.html"><i class="fa fa-check"></i><b>2</b> The Golem of Prague</a><ul>
+<li class="chapter" data-level="2.1" data-path="theGolemOfPrague.html"><a href="theGolemOfPrague.html#hypotheses-are-not-models"><i class="fa fa-check"></i><b>2.1</b> Hypotheses are not models</a></li>
+<li class="chapter" data-level="2.2" data-path="theGolemOfPrague.html"><a href="theGolemOfPrague.html#measurement-matters"><i class="fa fa-check"></i><b>2.2</b> Measurement matters</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="theGolemOfPrague.html"><a href="theGolemOfPrague.html#observaqtion-error"><i class="fa fa-check"></i><b>2.2.1</b> Observaqtion error</a></li>
+<li class="chapter" data-level="2.2.2" data-path="theGolemOfPrague.html"><a href="theGolemOfPrague.html#continuous-hypotheses"><i class="fa fa-check"></i><b>2.2.2</b> Continuous hypotheses</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="theGolemOfPrague.html"><a href="theGolemOfPrague.html#tools-for-golem-engineering"><i class="fa fa-check"></i><b>2.3</b> Tools for golem engineering</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="small-worlds-and-large-worlds.html"><a href="small-worlds-and-large-worlds.html"><i class="fa fa-check"></i><b>3</b> Small Worlds and Large Worlds</a><ul>
+<li class="chapter" data-level="3.1" data-path="small-worlds-and-large-worlds.html"><a href="small-worlds-and-large-worlds.html#end-of-chapter-exercises"><i class="fa fa-check"></i><b>3.1</b> End of chapter exercises</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="small-worlds-and-large-worlds.html"><a href="small-worlds-and-large-worlds.html#h1."><i class="fa fa-check"></i><b>3.1.1</b> 2H1.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="small-worlds-and-large-worlds.html"><a href="small-worlds-and-large-worlds.html#h2."><i class="fa fa-check"></i><b>3.1.2</b> 2H2.</a></li>
+<li class="chapter" data-level="3.1.3" data-path="small-worlds-and-large-worlds.html"><a href="small-worlds-and-large-worlds.html#h3."><i class="fa fa-check"></i><b>3.1.3</b> 2H3.</a></li>
+<li class="chapter" data-level="3.1.4" data-path="small-worlds-and-large-worlds.html"><a href="small-worlds-and-large-worlds.html#h4."><i class="fa fa-check"></i><b>3.1.4</b> 2H4.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html"><i class="fa fa-check"></i><b>4</b> Sampling the imaginary</a><ul>
+<li class="chapter" data-level="4.1" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#sampling-from-a-grid-approximate-posterior"><i class="fa fa-check"></i><b>4.1</b> Sampling from a grid-approximate posterior</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#intervals-of-defined-boundaries"><i class="fa fa-check"></i><b>4.1.1</b> Intervals of defined boundaries</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#chapter-3-practice-problems"><i class="fa fa-check"></i><b>4.2</b> Chapter 3 Practice Problems</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#e1."><i class="fa fa-check"></i><b>4.2.1</b> 3E1.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#e2."><i class="fa fa-check"></i><b>4.2.2</b> 3E2.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#e3."><i class="fa fa-check"></i><b>4.2.3</b> 3E3.</a></li>
+<li class="chapter" data-level="4.2.4" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#e4."><i class="fa fa-check"></i><b>4.2.4</b> 3E4.</a></li>
+<li class="chapter" data-level="4.2.5" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#e5."><i class="fa fa-check"></i><b>4.2.5</b> 3E5.</a></li>
+<li class="chapter" data-level="4.2.6" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#e6."><i class="fa fa-check"></i><b>4.2.6</b> 3E6.</a></li>
+<li class="chapter" data-level="4.2.7" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#e7."><i class="fa fa-check"></i><b>4.2.7</b> 3E7.</a></li>
+<li class="chapter" data-level="4.2.8" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#m1."><i class="fa fa-check"></i><b>4.2.8</b> 3M1.</a></li>
+<li class="chapter" data-level="4.2.9" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#m2."><i class="fa fa-check"></i><b>4.2.9</b> 3M2.</a></li>
+<li class="chapter" data-level="4.2.10" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#m3."><i class="fa fa-check"></i><b>4.2.10</b> 3M3.</a></li>
+<li class="chapter" data-level="4.2.11" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#m4."><i class="fa fa-check"></i><b>4.2.11</b> 3M4.</a></li>
+<li class="chapter" data-level="4.2.12" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#m5."><i class="fa fa-check"></i><b>4.2.12</b> 3M5.</a></li>
+<li class="chapter" data-level="4.2.13" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#m6."><i class="fa fa-check"></i><b>4.2.13</b> 3M6.</a></li>
+<li class="chapter" data-level="4.2.14" data-path="small-worlds-and-large-worlds.html"><a href="small-worlds-and-large-worlds.html#h1."><i class="fa fa-check"></i><b>4.2.14</b> 3H1.</a></li>
+<li class="chapter" data-level="4.2.15" data-path="small-worlds-and-large-worlds.html"><a href="small-worlds-and-large-worlds.html#h2."><i class="fa fa-check"></i><b>4.2.15</b> 3H2.</a></li>
+<li class="chapter" data-level="4.2.16" data-path="small-worlds-and-large-worlds.html"><a href="small-worlds-and-large-worlds.html#h3."><i class="fa fa-check"></i><b>4.2.16</b> 3H3.</a></li>
+<li class="chapter" data-level="4.2.17" data-path="small-worlds-and-large-worlds.html"><a href="small-worlds-and-large-worlds.html#h4."><i class="fa fa-check"></i><b>4.2.17</b> 3H4.</a></li>
+<li class="chapter" data-level="4.2.18" data-path="sampling-the-imaginary.html"><a href="sampling-the-imaginary.html#h5."><i class="fa fa-check"></i><b>4.2.18</b> 3H5.</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Mulling Over McElreath’s Statistical Rethinking</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="small-worlds-and-large-worlds" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Small Worlds and Large Worlds</h1>
+<p>Differentiate between the small world — the self-contained logical world of the model — and the large world — the broader context in which one deploys a model. Statistical models pertain to the small world, and insofar as their assumptions reflect reality, they are useful in the large world. Bayesian learning is optimal in the small world in terms of how it makes use of information in the data, but that optimality only transfers to the large world inasmuch as the small world is an accurate description of the large world.</p>
+<p>The small world is about probability theory and the stylized components of a Bayesian statistical model for learning from data.</p>
+<p>We collect a sequence of observations — data. Building a model involves making assumptions:</p>
+<ol style="list-style-type: decimal">
+<li>Data story: how the data arise</li>
+<li>Update: educate your model by feeding it data</li>
+<li>Evaluate: supervise, critique and often rebuild.</li>
+</ol>
+<p>We need to name all the variables and define them. Variables are symbols that can take on different values. They can be unobserved variables (i.e. parameters) or observed variables (things we can measure and use to infer the unobserved variable values).</p>
+<div id="end-of-chapter-exercises" class="section level2">
+<h2><span class="header-section-number">3.1</span> End of chapter exercises</h2>
+<div id="h1." class="section level3">
+<h3><span class="header-section-number">3.1.1</span> 2H1.</h3>
+<p>Suppose there are two species of panda bear. Both are equally common in the wild and live in the same places. They look exactly alike and eat the same food, and there is yet no genetic assay capable of telling them apart. They differ however in their family sizes. Species A gives birth to twins <span class="math inline">\(10\%\)</span> of the time, otherwise birthing a single infant. Species B births twins <span class="math inline">\(20%\)</span> of the time, otherwise birthing singleton infants. Assume these numbers are known with certainty, from many years of field research.</p>
+<p>Now suppose you are managing a captive panda breeding program. You have a new female panda of unknown species, and she has just given birth to twins. What is the probability that her next birth will also be twins?</p>
+<p><strong>Solution</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="small-worlds-and-large-worlds.html#cb7-1"></a><span class="co">#2H1</span></span>
+<span id="cb7-2"><a href="small-worlds-and-large-worlds.html#cb7-2"></a>prior =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb7-3"><a href="small-worlds-and-large-worlds.html#cb7-3"></a>likelihood =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>)</span>
+<span id="cb7-4"><a href="small-worlds-and-large-worlds.html#cb7-4"></a>posterior_unst =<span class="st"> </span>likelihood <span class="op">*</span><span class="st"> </span>prior</span>
+<span id="cb7-5"><a href="small-worlds-and-large-worlds.html#cb7-5"></a>posterior =<span class="st"> </span>posterior_unst <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(posterior_unst)</span>
+<span id="cb7-6"><a href="small-worlds-and-large-worlds.html#cb7-6"></a><span class="co"># probability next birth is twins:</span></span>
+<span id="cb7-7"><a href="small-worlds-and-large-worlds.html#cb7-7"></a>posterior[<span class="dv">1</span>] <span class="op">*</span><span class="st"> </span><span class="fl">0.1</span> <span class="op">+</span><span class="st"> </span>posterior[<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span><span class="fl">0.2</span></span></code></pre></div>
+<pre><code>## [1] 0.1666667</code></pre>
+</div>
+<div id="h2." class="section level3">
+<h3><span class="header-section-number">3.1.2</span> 2H2.</h3>
+<p>Recall all the facts from the problem above. Now compute the probability that the panda we have is from species A, assuming we have observed only the first birth and that it was twins.</p>
+<p><strong>Solution</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="small-worlds-and-large-worlds.html#cb9-1"></a><span class="co"># 2H2</span></span>
+<span id="cb9-2"><a href="small-worlds-and-large-worlds.html#cb9-2"></a>prior1 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>) <span class="co"># A, B</span></span>
+<span id="cb9-3"><a href="small-worlds-and-large-worlds.html#cb9-3"></a>likelihood1 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>) <span class="co">#A, B</span></span>
+<span id="cb9-4"><a href="small-worlds-and-large-worlds.html#cb9-4"></a>posterior_unst1 =<span class="st"> </span>likelihood1 <span class="op">*</span><span class="st"> </span>prior1</span>
+<span id="cb9-5"><a href="small-worlds-and-large-worlds.html#cb9-5"></a>posterior1 =<span class="st"> </span>posterior_unst <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(posterior_unst)</span>
+<span id="cb9-6"><a href="small-worlds-and-large-worlds.html#cb9-6"></a><span class="co"># probability she is species A</span></span>
+<span id="cb9-7"><a href="small-worlds-and-large-worlds.html#cb9-7"></a>posterior1[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 0.3333333</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="small-worlds-and-large-worlds.html#cb11-1"></a>posterior1</span></code></pre></div>
+<pre><code>## [1] 0.3333333 0.6666667</code></pre>
+</div>
+<div id="h3." class="section level3">
+<h3><span class="header-section-number">3.1.3</span> 2H3.</h3>
+<p>Continuing on from the previous problem, suppose the same panda mother has a second birth and that it is not twins, but a singleton infant. Compute the posterior probability that this panda is species A.
+<strong>Solution</strong>
+Want: <span class="math inline">\(P(\neg t2|t1,A)\)</span>.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="small-worlds-and-large-worlds.html#cb13-1"></a><span class="co"># 2H3</span></span>
+<span id="cb13-2"><a href="small-worlds-and-large-worlds.html#cb13-2"></a>prior2 =<span class="st"> </span>posterior1</span>
+<span id="cb13-3"><a href="small-worlds-and-large-worlds.html#cb13-3"></a>likelihood2 =<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span>likelihood1</span>
+<span id="cb13-4"><a href="small-worlds-and-large-worlds.html#cb13-4"></a>posterior_unst2 =<span class="st"> </span>prior2 <span class="op">*</span><span class="st"> </span>likelihood2</span>
+<span id="cb13-5"><a href="small-worlds-and-large-worlds.html#cb13-5"></a>posterior2 =<span class="st"> </span>posterior_unst2 <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(posterior_unst2)</span>
+<span id="cb13-6"><a href="small-worlds-and-large-worlds.html#cb13-6"></a>posterior2</span></code></pre></div>
+<pre><code>## [1] 0.36 0.64</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="small-worlds-and-large-worlds.html#cb15-1"></a><span class="co"># Prob of singleton given species A and twins</span></span>
+<span id="cb15-2"><a href="small-worlds-and-large-worlds.html#cb15-2"></a>posterior2[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 0.36</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="small-worlds-and-large-worlds.html#cb17-1"></a>pr =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb17-2"><a href="small-worlds-and-large-worlds.html#cb17-2"></a>lik =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.1</span><span class="op">*</span><span class="fl">0.9</span>, <span class="fl">0.2</span><span class="op">*</span><span class="fl">0.8</span>)</span>
+<span id="cb17-3"><a href="small-worlds-and-large-worlds.html#cb17-3"></a>po =<span class="st"> </span>pr <span class="op">*</span><span class="st"> </span>lik</span>
+<span id="cb17-4"><a href="small-worlds-and-large-worlds.html#cb17-4"></a>po =<span class="st"> </span>po<span class="op">/</span><span class="kw">sum</span>(po)</span>
+<span id="cb17-5"><a href="small-worlds-and-large-worlds.html#cb17-5"></a>po</span></code></pre></div>
+<pre><code>## [1] 0.36 0.64</code></pre>
+</div>
+<div id="h4." class="section level3">
+<h3><span class="header-section-number">3.1.4</span> 2H4.</h3>
+<p>A common boast of Bayesian statisticians is that Bayesian inference makes it easy to use all of the data, even if the data are of different types.</p>
+<p>So suppose now that a veterinarian comes along who has a new genetic test that she claims can identify the species of our mother panda. But the test, like all tests, is imperfect. This is the information you have about the test:</p>
+<ul>
+<li>The probability it correctly identifies a species A panda is 0.8.</li>
+<li>The probability it correctly identifies a species B panda is 0.65.</li>
+</ul>
+<p>The vet administers the test to your panda and tells you that the test is positive for species A. First ignore your previous information from the births and compute the posterior probability that your panda is species A. Then redo your calculation, now using the birth data as well.</p>
+<p><strong>Solution</strong>
+Know: <span class="math inline">\(P(testA|A) = 0.8\)</span> and <span class="math inline">\(P(testB|B)=0.65\)</span>, and can infer <span class="math inline">\(P(testA|B)=1-0.65 = 0.35\)</span> and <span class="math inline">\(P(testB|A) = 1-0.8 = 0.2\)</span>.</p>
+<p>Want: <span class="math inline">\(P(A|testA) = \frac{P(testA|A)P(A)}{P(testA)}\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+P(testA) &amp;= P(testA|A)P(A) + P(testA|B)P(B) \\
+&amp;= 0.8\times0.5 + 0.35\times 0.5 \\
+&amp;= 0.575
+\end{aligned}
+\]</span></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="small-worlds-and-large-worlds.html#cb19-1"></a><span class="co"># 2H4</span></span>
+<span id="cb19-2"><a href="small-worlds-and-large-worlds.html#cb19-2"></a><span class="co"># No birth information</span></span>
+<span id="cb19-3"><a href="small-worlds-and-large-worlds.html#cb19-3"></a>prior3 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb19-4"><a href="small-worlds-and-large-worlds.html#cb19-4"></a>likelihood3 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.8</span>, <span class="fl">0.35</span>)</span>
+<span id="cb19-5"><a href="small-worlds-and-large-worlds.html#cb19-5"></a>posterior_unst3 =<span class="st"> </span>prior3 <span class="op">*</span><span class="st"> </span>likelihood3</span>
+<span id="cb19-6"><a href="small-worlds-and-large-worlds.html#cb19-6"></a>posterior3 =<span class="st"> </span>posterior_unst3 <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(posterior_unst3)</span>
+<span id="cb19-7"><a href="small-worlds-and-large-worlds.html#cb19-7"></a>posterior3 </span></code></pre></div>
+<pre><code>## [1] 0.6956522 0.3043478</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="small-worlds-and-large-worlds.html#cb21-1"></a><span class="co"># Birth information</span></span>
+<span id="cb21-2"><a href="small-worlds-and-large-worlds.html#cb21-2"></a>prior4 =<span class="st"> </span>posterior2</span>
+<span id="cb21-3"><a href="small-worlds-and-large-worlds.html#cb21-3"></a>likelihood4 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.8</span>, <span class="fl">0.35</span>)</span>
+<span id="cb21-4"><a href="small-worlds-and-large-worlds.html#cb21-4"></a>posterior_unst4 =<span class="st"> </span>prior4 <span class="op">*</span><span class="st"> </span>likelihood4</span>
+<span id="cb21-5"><a href="small-worlds-and-large-worlds.html#cb21-5"></a>posterior4 =<span class="st"> </span>posterior_unst4 <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(posterior_unst4)</span>
+<span id="cb21-6"><a href="small-worlds-and-large-worlds.html#cb21-6"></a>posterior4 </span></code></pre></div>
+<pre><code>## [1] 0.5625 0.4375</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="theGolemOfPrague.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sampling-the-imaginary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["StatisticalRethinking.pdf", "StatisticalRethinking.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
