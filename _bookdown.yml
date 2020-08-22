@@ -2,7 +2,9 @@ book_filename: "StatisticalRethinking"
 chapter_name: "Chapter "
 repo: https://github.com/danBurrell/StatisticalRethinking
 output_dir: docs
-rmd_files: ["index.Rmd", "01-theGolemOfPrague.Rmd"]
-clean: [packages.bib, bookdown,bbl]
+rmd_files: ["index.Rmd", "01-theGolemOfPrague.Rmd", 
+"02-SmallWorldsAndLargeWorlds.Rmd", 
+"03-samplingTheImaginary.Rmd"]
+clean: [packages.bib, bookdown.bbl]
 new_session: yes
 delete_merged_file: true

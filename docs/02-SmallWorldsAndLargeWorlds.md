@@ -1,0 +1,161 @@
+# Small Worlds and Large Worlds
+
+Differentiate between the small world --- the self-contained logical world of the model --- and the large world --- the broader context in which one deploys a model. Statistical models pertain to the small world, and insofar as their assumptions reflect reality, they are useful in the large world. Bayesian learning is optimal in the small world in terms of how it makes use of information in the data, but that optimality only transfers to the large world inasmuch as the small world is an accurate description of the large world. 
+
+The small world is about probability theory and the stylized components of a Bayesian statistical model for learning from data. 
+
+We collect a sequence of observations --- data. Building a model involves making assumptions:
+
+1. Data story: how the data arise
+2. Update: educate your model by feeding it data
+3. Evaluate: supervise, critique and often rebuild. 
+
+We need to name all the variables and define them. Variables are symbols that can take on different values. They can be unobserved variables (i.e. parameters) or observed variables (things we can measure and use to infer the unobserved variable values). 
+
+## End of chapter exercises
+
+### 2H1. 
+
+Suppose there are two species of panda bear. Both are equally common in the wild and live in the same places. They look exactly alike and eat the same food, and there is yet no genetic assay capable of telling them apart. They differ however in their family sizes. Species A gives birth to twins $10\%$ of the time, otherwise birthing a single infant. Species B births twins $20%$ of the time, otherwise birthing singleton infants. Assume these numbers are known with certainty, from many years of field  research.  
+
+Now suppose you are managing a captive panda breeding program. You have a new female panda  of unknown species, and she has just given birth to twins. What is the probability that her next birth  will also be twins? 
+
+**Solution**
+
+```r
+#2H1
+prior = c(0.5, 0.5)
+likelihood = c(0.1, 0.2)
+posterior_unst = likelihood * prior
+posterior = posterior_unst / sum(posterior_unst)
+# probability next birth is twins:
+posterior[1] * 0.1 + posterior[2] * 0.2
+```
+
+```
+## [1] 0.1666667
+```
+
+### 2H2.
+
+Recall all the facts from the problem above. Now compute the probability that the panda we have is from species A, assuming we have observed only the first birth and that it was twins. 
+
+**Solution**
+
+```r
+# 2H2
+prior1 = c(0.5, 0.5) # A, B
+likelihood1 = c(0.1, 0.2) #A, B
+posterior_unst1 = likelihood1 * prior1
+posterior1 = posterior_unst / sum(posterior_unst)
+# probability she is species A
+posterior1[1]
+```
+
+```
+## [1] 0.3333333
+```
+
+```r
+posterior1
+```
+
+```
+## [1] 0.3333333 0.6666667
+```
+
+### 2H3.
+
+Continuing on from the previous problem, suppose the same panda mother has a second birth  and that it is not twins, but a singleton infant. Compute the posterior probability that this panda is  species A. 
+**Solution**
+Want: $P(\neg t2|t1,A)$.
+
+
+```r
+# 2H3
+prior2 = posterior1
+likelihood2 = 1 - likelihood1
+posterior_unst2 = prior2 * likelihood2
+posterior2 = posterior_unst2 / sum(posterior_unst2)
+posterior2
+```
+
+```
+## [1] 0.36 0.64
+```
+
+```r
+# Prob of singleton given species A and twins
+posterior2[1]
+```
+
+```
+## [1] 0.36
+```
+
+
+```r
+pr = c(0.5, 0.5)
+lik = c(0.1*0.9, 0.2*0.8)
+po = pr * lik
+po = po/sum(po)
+po
+```
+
+```
+## [1] 0.36 0.64
+```
+
+
+### 2H4.
+
+A common boast of Bayesian statisticians is that Bayesian inference makes it easy to use all of  the data, even if the data are of different types.  
+
+So suppose now that a veterinarian comes along who has a new genetic test that she claims can  identify the species of our mother panda. But the test, like all tests, is imperfect. This is the information you have about the test:
+
+* The probability it correctly identifies a species A panda is 0.8. 
+* The probability it correctly identifies a species B panda is 0.65.  
+
+The vet administers the test to your panda and tells you that the test is positive for species A. First  ignore your previous information from the births and compute the posterior probability that your  panda is species A. Then redo your calculation, now using the birth data as well. 
+
+
+**Solution**
+Know: $P(testA|A) = 0.8$ and $P(testB|B)=0.65$, and can infer $P(testA|B)=1-0.65 = 0.35$ and $P(testB|A) = 1-0.8 = 0.2$.
+
+Want: $P(A|testA) = \frac{P(testA|A)P(A)}{P(testA)}$
+
+$$
+\begin{aligned}
+P(testA) &= P(testA|A)P(A) + P(testA|B)P(B) \\
+&= 0.8\times0.5 + 0.35\times 0.5 \\
+&= 0.575
+\end{aligned}
+$$
+
+
+```r
+# 2H4
+# No birth information
+prior3 = c(0.5, 0.5)
+likelihood3 = c(0.8, 0.35)
+posterior_unst3 = prior3 * likelihood3
+posterior3 = posterior_unst3 / sum(posterior_unst3)
+posterior3 
+```
+
+```
+## [1] 0.6956522 0.3043478
+```
+
+```r
+# Birth information
+prior4 = posterior2
+likelihood4 = c(0.8, 0.35)
+posterior_unst4 = prior4 * likelihood4
+posterior4 = posterior_unst4 / sum(posterior_unst4)
+posterior4 
+```
+
+```
+## [1] 0.5625 0.4375
+```
